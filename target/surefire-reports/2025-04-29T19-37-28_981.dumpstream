@@ -1,4 +1,0 @@
-# Created at 2025-04-29T19:37:29.353
-Boot Manifest-JAR contains absolute paths in classpath 'I:\UCB\7mo Semestre\Gestión de Calidad\Pipeline_Jenkins\target\test-classes'
-Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
-
