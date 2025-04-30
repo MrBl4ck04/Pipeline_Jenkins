@@ -73,7 +73,7 @@ pipeline {
                             if exist "%TOMCAT_HOME%\\webapps\\hola-mundo.war" del "%TOMCAT_HOME%\\webapps\\hola-mundo.war"
                             rmdir /S /Q "%TOMCAT_HOME%\\webapps\\hola-mundo"
                         )
-                        copy target\hola-mundo.war %TOMCAT_HOME%\webapps
+                        copy target\\hola-mundo.war %TOMCAT_HOME%\\webapps
                 '''
                 echo '[+] Despliegue completado'
             }
