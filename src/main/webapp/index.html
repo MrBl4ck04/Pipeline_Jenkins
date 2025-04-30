@@ -3,64 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aplicación Hola Mundo - Pipeline Jenkins</title>
+    <title>Cobra Kai - Strike First. Strike Hard. No Mercy.</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Impact', Haettenschweiler, 'Arial Narrow Bold', sans-serif;
             margin: 0;
-            padding: 20px;
-            line-height: 1.6;
-            color: #333;
+            padding: 0;
+            /* background-color: #1a1a1a; /* Color de fondo original comentado */
+            color: #f0f0f0;
+            position: relative; /* Necesario para el posicionamiento absoluto del pseudo-elemento */
+            min-height: 100vh; /* Asegura que el body ocupe al menos toda la altura de la ventana */
+            overflow-x: hidden; /* Evita scroll horizontal si el blur se extiende */
+        }
+
+        body::before {
+            content: '';
+            position: fixed; /* Fijo para que cubra toda la ventana y no se desplace */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/cobra-kai-logo.jpg'); /* Ruta a tu imagen */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            filter: blur(5px); /* Ajusta el valor del blur según necesites */
+            z-index: -1; /* Coloca el fondo detrás del contenido */
+            /* Opcional: un ligero oscurecimiento para mejorar legibilidad del texto */
+            /* background-color: rgba(0, 0, 0, 0.3); */
+            /* background-blend-mode: darken; */
         }
         .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #2c3e50;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #000;
+            border: 2px solid #ffcc00; /* Amarillo Cobra Kai */
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(255, 204, 0, 0.5);
             text-align: center;
         }
-        .info {
-            background-color: #2980b9;
-            padding: 15px;
-            border-radius: 4px;
+        h1 {
+            color: #ffcc00; /* Amarillo Cobra Kai */
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #e84118; /* Rojo Cobra Kai */
+            border-bottom: 1px solid #ffcc00;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        p {
+            line-height: 1.7;
+            color: #ccc;
+            text-align: justify;
+        }
+        .logo {
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+        .dojo-info {
+            background-color: #2f3640;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 25px;
+            border: 1px solid #444;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+            color: #ffcc00;
+        }
+        li::before {
+            content: '🐍 ';
+            margin-right: 8px;
+        }
+        .motto {
+            font-style: italic;
+            font-size: 1.2em;
+            color: #e84118;
             margin-top: 20px;
+            font-weight: bold;
         }
         .btn {
             display: inline-block;
-            background-color: #3498db;
-            color: white;
-            padding: 10px 15px;
+            background-color: #ffcc00;
+            color: #000;
+            padding: 12px 25px;
             text-decoration: none;
             border-radius: 4px;
-            margin-top: 15px;
+            margin-top: 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
         }
         .btn:hover {
-            background-color: #2980b9;
+            background-color: #e84118;
+            color: #fff;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Probando el funcionamiento con Tomcat AGAIN X3</h1>
-        <p>Esta es una aplicación Java simple para demostrar un pipeline de integración continua con Jenkins.</p>
-        
-        <div class="info">
-            <h2>Información del Proyecto</h2>
-            <p>Esta aplicación demuestra:</p>
+        <!-- Puedes añadir un logo de Cobra Kai aquí si tienes la URL -->
+        <!-- <img src="URL_DEL_LOGO_COBRA_KAI" alt="Logo Cobra Kai" class="logo"> -->
+        <h1>Cobra Kai Dojo</h1>
+        <p class="motto">"Strike First. Strike Hard. No Mercy."</p>
+
+        <p>Bienvenido al sitio no oficial del dojo Cobra Kai. Aquí celebramos el legado, la rivalidad y la redención que definen a la serie. Desde el All Valley Karate Tournament hasta las batallas diarias, Cobra Kai nunca muere.</p>
+
+        <div class="dojo-info">
+            <h2>Principios del Dojo</h2>
+            <p>Nuestra filosofía se basa en la fuerza, la determinación y la ausencia de miedo. Aprende los principios que nos guían:</p>
             <ul>
-                <li>Integración continua con Jenkins</li>
-                <li>Compilación con Maven</li>
-                <li>Pruebas unitarias automatizadas</li>
-                <li>Despliegue automático en Tomcat</li>
+                <li>Golpea Primero: Toma la iniciativa y sé proactivo.</li>
+                <li>Golpea Fuerte: Comprométete al máximo en cada acción.</li>
+                <li>Sin Piedad: No muestres debilidad ante tus adversarios.</li>
             </ul>
         </div>
-        
-        <a href="holaMundo" class="btn">Ver Servlet Hola Mundo</a>
+
+        <h2>La Rivalidad Continúa</h2>
+        <p>La tensión entre Cobra Kai, Miyagi-Do y Eagle Fang Karate sigue creciendo. ¿Qué dojo prevalecerá? La historia se escribe en cada enfrentamiento.</p>
+
+        <!-- El enlace al servlet se mantiene, aunque su contenido no coincida temáticamente -->
+        <a href="holaMundo" class="btn">Ver Mensaje Original (Servlet)</a>
     </div>
 </body>
 </html>
