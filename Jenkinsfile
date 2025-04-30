@@ -19,7 +19,7 @@ pipeline {
         stage('Compilar') {
             steps {
                 // Compilar el proyecto con Maven
-                sh 'mvn clean compile'
+                bat 'mvn clean compile'
                 echo 'Compilación completada'
             }
         }
@@ -27,7 +27,7 @@ pipeline {
         stage('Pruebas') {
             steps {
                 // Ejecutar pruebas unitarias
-                sh 'mvn test'
+                bat 'mvn test'
                 echo 'Pruebas completadas'
             }
             post {
@@ -41,7 +41,7 @@ pipeline {
         stage('Empaquetar') {
             steps {
                 // Empaquetar la aplicación
-                sh 'mvn package -DskipTests'
+                bat 'mvn package -DskipTests'
                 echo 'Empaquetado completado'
             }
         }
@@ -51,7 +51,7 @@ pipeline {
                 // Desplegar el WAR en Tomcat
                 echo 'Desplegando aplicación en Tomcat...'
                 // Copiar el archivo WAR al directorio webapps de Tomcat
-                sh 'cp target/hola-mundo.war $TOMCAT_HOME/webapps/'
+                bat 'copy target\hola-mundo.war %TOMCAT_HOME%\webapps\'
                 echo 'Despliegue completado'
             }
         }
