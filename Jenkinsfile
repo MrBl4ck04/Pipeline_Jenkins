@@ -49,20 +49,20 @@ pipeline {
         stage('Desplegar en Tomcat') {
             steps {
                 // Desplegar el WAR en Tomcat
-                echo 'Desplegando aplicación en Tomcat...'
+                echo '[!] Desplegando aplicación en Tomcat...'
                 // Copiar el archivo WAR al directorio webapps de Tomcat
                 bat 'copy target\\hola-mundo.war %TOMCAT_HOME%\\webapps'
-                echo 'Despliegue completado'
+                echo '[+] Despliegue completado'
             }
         }
     }
     
     post {
         success {
-            echo 'Pipeline ejecutado exitosamente!'
+            echo '[+] Pipeline ejecutado exitosamente!'
         }
         failure {
-            echo 'El pipeline ha fallado. Por favor revise los logs para más detalles.'
+            echo '[!] El pipeline ha fallado. Por favor revise los logs para más detalles.'
         }
         always {
             // Limpiar el espacio de trabajo
