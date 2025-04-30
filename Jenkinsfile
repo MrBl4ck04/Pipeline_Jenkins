@@ -1,6 +1,12 @@
 pipeline {
     agent any
     
+    // Configurar triggers para automatizar el proceso
+    triggers {
+        // Configurar polling al SCM cada 2 minutos
+        pollSCM('*/1 * * * *')
+    }
+    
     tools {
         // Configuración de herramientas
         maven 'Maven'
@@ -50,8 +56,39 @@ pipeline {
             steps {
                 // Desplegar el WAR en Tomcat
                 echo '[!] Desplegando aplicación en Tomcat...'
-                // Copiar el archivo WAR al directorio webapps de Tomcat
-                bat 'copy target\\hola-mundo.war %TOMCAT_HOME%\\webapps'
+                // Método 1: Usar el plugin de Maven para Tomcat (más eficiente)
+                bat '''
+                    @echo off
+                    echo Desplegando con Maven Tomcat Plugin...
+                    mvn tomcat7:deploy -DskipTests -s settings.xml || mvn tomcat7:redeploy -DskipTests -s settings.xml
+                '''
+                
+                // Método 2 (alternativo): Despliegue manual en caso de que falle el método 1
+                bat '''
+                    @echo off
+                    if %errorlevel% neq 0 (
+                        echo El despliegue con Maven falló, usando método alternativo...
+                        if exist "%TOMCAT_HOME%\webapps\hola-mundo" (
+                            echo Deteniendo y eliminando la aplicación existente...
+                            if exist "%TOMCAT_HOME%\webapps\hola-mundo.war" del "%TOMCAT_HOME%\webapps\hola-mundo.war"
+                            rmdir /S /Q "%TOMCAT_HOME%\webapps\hola-mundo"
+                        )
+                        copy target\hola-mundo.war %TOMCAT_HOME%\webapps
+                        echo Esperando a que Tomcat despliegue la aplicación...
+                        ping 127.0.0.1 -n 10 > nul
+                        
+                        echo Reiniciando Tomcat para aplicar los cambios...
+                        if exist "%TOMCAT_HOME%\bin\shutdown.bat" (
+                            call "%TOMCAT_HOME%\bin\shutdown.bat"
+                            timeout /t 5 /nobreak > nul
+                            call "%TOMCAT_HOME%\bin\startup.bat"
+                            timeout /t 10 /nobreak > nul
+                            echo Tomcat reiniciado correctamente
+                        ) else (
+                            echo No se encontraron los scripts de Tomcat
+                        )
+                    )
+                '''
                 echo '[+] Despliegue completado'
             }
         }
