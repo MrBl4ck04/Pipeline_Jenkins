@@ -4,6 +4,12 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
     
+    <!-- Configuración para habilitar la recarga automática -->
+    <context-param>
+        <param-name>reloadable</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    
     <display-name>Aplicación Hola Mundo</display-name>
     
     <welcome-file-list>
