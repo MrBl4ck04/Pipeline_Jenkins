@@ -1,12 +1,6 @@
 pipeline {
     agent any
     
-    // Configurar triggers para automatizar el proceso
-    triggers {
-        // Configurar polling al SCM cada 2 minutos
-        pollSCM('*/1 * * * *')
-    }
-    
     tools {
         // Configuración de herramientas
         maven 'Maven'
@@ -52,33 +46,38 @@ pipeline {
             }
         }
         
-        stage('Desplegar en Tomcat') {
+        stage('Desplegar Tomcat') {
             steps {
-                // Desplegar el WAR en Tomcat
-                echo '[!] Desplegando aplicación en Tomcat...'
-                // Método 1: Usar el plugin de Maven para Tomcat (más eficiente)
-                bat '''
-                    @echo off
-                    echo Desplegando con Maven Tomcat Plugin...
-                    mvn tomcat7:deploy -DskipTests -s settings.xml || mvn tomcat7:redeploy -DskipTests -s settings.xml
-                '''
-                
-                // Método 2 (alternativo): Despliegue manual en caso de que falle el método 1
-                bat '''
-                    @echo off
-                    if %errorlevel% neq 0 (
-                        echo El despliegue con Maven falló, usando método alternativo...
-                        if exist "%TOMCAT_HOME%\\webapps\\hola-mundo" (
-                            echo Deteniendo y eliminando la aplicación existente...
-                            if exist "%TOMCAT_HOME%\\webapps\\hola-mundo.war" del "%TOMCAT_HOME%\\webapps\\hola-mundo.war"
-                            rmdir /S /Q "%TOMCAT_HOME%\\webapps\\hola-mundo"
-                        )
-                        copy target\\hola-mundo.war %TOMCAT_HOME%\\webapps
-                '''
-                echo '[+] Despliegue completado'
+                script {
+                    // Ruta de Tomcat webapps con formato Windows (barras invertidas)
+                    def tomcatWeb = 'C:\\Program Files\\Apache Software Foundation\\Tomcat 9.0\\webapps'
+                    
+                    // Usar ruta relativa al workspace de Jenkins con formato Windows (barras invertidas)
+                    def warFile = "${WORKSPACE}\\target\\hola-mundo.war"
+                    
+                    // Verificar si el directorio target existe
+                    bat "dir ${WORKSPACE}\\target"
+                    
+                    // Verificar si el archivo WAR específico existe en la ruta del workspace
+                    bat "if exist \"${warFile}\" (echo El archivo WAR existe) else (echo El archivo WAR NO existe)"
+                    
+                    echo "Intentando copiar: ${warFile}"
+                    
+                    // Eliminar versión anterior del WAR en Tomcat si existe
+                    bat "if exist \"${tomcatWeb}\\hola-mundo.war\" del \"${tomcatWeb}\\hola-mundo.war\""
+                    bat "if exist \"${tomcatWeb}\\hola-mundo\" rmdir /s /q \"${tomcatWeb}\\hola-mundo\""
+                    // Copiar el archivo .war al directorio webapps usando la ruta del workspace
+                    bat "copy \"${warFile}\" \"${tomcatWeb}\\\""
+                    
+                    echo "Nuevo WAR desplegado correctamente"
+                    sleep(time: 15, unit: 'SECONDS')
+                    
+                    echo "Aplicación desplegada en: http://localhost:8080/hola-mundo/"
+                }
             }
         }
     }
+    
     
     post {
         success {
