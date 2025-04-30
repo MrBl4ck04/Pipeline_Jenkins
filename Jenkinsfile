@@ -74,20 +74,6 @@ pipeline {
                             rmdir /S /Q "%TOMCAT_HOME%\\webapps\\hola-mundo"
                         )
                         copy target\hola-mundo.war %TOMCAT_HOME%\webapps
-                        echo Esperando a que Tomcat despliegue la aplicación...
-                        ping 127.0.0.1 -n 10 > nul
-                        
-                        echo Reiniciando Tomcat para aplicar los cambios...
-                        if exist "%TOMCAT_HOME%\bin\shutdown.bat" (
-                            call "%TOMCAT_HOME%\bin\shutdown.bat"
-                            timeout /t 5 /nobreak > nul
-                            call "%TOMCAT_HOME%\bin\startup.bat"
-                            timeout /t 10 /nobreak > nul
-                            echo Tomcat reiniciado correctamente
-                        ) else (
-                            echo No se encontraron los scripts de Tomcat
-                        )
-                    )
                 '''
                 echo '[+] Despliegue completado'
             }
