@@ -12,7 +12,7 @@ pipeline {
             steps {
                 // Obtener código del repositorio Git
                 checkout scm
-                echo 'Descarga de código completada'
+                echo '[+] Descarga de código completada'
             }
         }
         
@@ -20,7 +20,7 @@ pipeline {
             steps {
                 // Compilar el proyecto con Maven
                 bat 'mvn clean compile'
-                echo 'Compilación completada'
+                echo '[+] Compilación completada'
             }
         }
         
@@ -28,7 +28,7 @@ pipeline {
             steps {
                 // Ejecutar pruebas unitarias
                 bat 'mvn test'
-                echo 'Pruebas completadas'
+                echo '[+] Pruebas completadas'
             }
             post {
                 // Publicar resultados de pruebas
@@ -42,7 +42,7 @@ pipeline {
             steps {
                 // Empaquetar la aplicación
                 bat 'mvn package -DskipTests'
-                echo 'Empaquetado completado'
+                echo '[+] Empaquetado completado'
             }
         }
         
@@ -61,7 +61,7 @@ pipeline {
                     // Verificar si el archivo WAR específico existe en la ruta del workspace
                     bat "if exist \"${warFile}\" (echo El archivo WAR existe) else (echo El archivo WAR NO existe)"
                     
-                    echo "Intentando copiar: ${warFile}"
+                    echo "[!] Intentando copiar: ${warFile}"
                     
                     // Eliminar versión anterior del WAR en Tomcat si existe
                     bat "if exist \"${tomcatWeb}\\hola-mundo.war\" del \"${tomcatWeb}\\hola-mundo.war\""
@@ -69,10 +69,10 @@ pipeline {
                     // Copiar el archivo .war al directorio webapps usando la ruta del workspace
                     bat "copy \"${warFile}\" \"${tomcatWeb}\\\""
                     
-                    echo "Nuevo WAR desplegado correctamente"
+                    echo "[+] Nuevo WAR desplegado correctamente"
                     sleep(time: 15, unit: 'SECONDS')
                     
-                    echo "Aplicación desplegada en: http://localhost:8080/hola-mundo/"
+                    echo "[+] Aplicación desplegada en: http://localhost:8080/hola-mundo/"
                 }
             }
         }
