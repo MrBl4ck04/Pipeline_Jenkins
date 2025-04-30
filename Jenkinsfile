@@ -51,7 +51,7 @@ pipeline {
                 // Desplegar el WAR en Tomcat
                 echo 'Desplegando aplicación en Tomcat...'
                 // Copiar el archivo WAR al directorio webapps de Tomcat
-                bat 'copy target\\hola-mundo.war %TOMCAT_HOME%\\webapps\'
+                bat 'copy target\\hola-mundo.war %TOMCAT_HOME%\\webapps'
                 echo 'Despliegue completado'
             }
         }
