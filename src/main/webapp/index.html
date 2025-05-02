@@ -191,6 +191,56 @@
             color: #000;
         }
         
+        /* Estilos para el carrusel de imágenes */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 30px auto;
+            overflow: hidden;
+            border-radius: 8px;
+            border: 2px solid #ffcc00;
+        }
+        
+        .carousel-slide {
+            display: flex;
+            width: 500%;
+            transition: transform 0.5s ease;
+        }
+        
+        .carousel-slide img {
+            width: 20%;
+            height: 400px;
+            object-fit: cover;
+        }
+        
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #ffcc00;
+            border: none;
+            font-size: 24px;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 50%;
+            z-index: 10;
+            transition: background-color 0.3s;
+        }
+        
+        .carousel-button:hover {
+            background-color: rgba(232, 65, 24, 0.8);
+        }
+        
+        .carousel-button.prev {
+            left: 10px;
+        }
+        
+        .carousel-button.next {
+            right: 10px;
+        }
+        
         /* Estilos para las imágenes de los protagonistas */
         .character-img {
             width: 100%;
@@ -287,6 +337,19 @@
         <p class="motto">"Golpea Primero. Golpea Fuerte. Sin Piedad."</p>
 
         <p>Bienvenido al sitio no oficial del dojo Cobra Kai. Aquí celebramos el legado, la rivalidad y la redención que definen a la serie. Desde el All Valley Karate Tournament hasta las batallas diarias, Cobra Kai nunca muere.</p>
+
+        <!-- Carrusel de imágenes -->
+        <div class="carousel-container">
+            <div class="carousel-slide">
+                <img src="images/cobra-kai-logo.jpg" alt="Logo Cobra Kai">
+                <img src="images/sekaitaikai.jpg" alt="Equipo Cobra Kai - Campeones del Sekai Taikai">
+                <img src="images/migueldias.jpg" alt="Miguel Diaz">
+                <img src="images/hawk.jpg" alt="Hawk (Eli Moskowitz)">
+                <img src="images/jhonny.jpg" alt="Johnny Lawrence">
+            </div>
+            <button class="carousel-button prev">&#10094;</button>
+            <button class="carousel-button next">&#10095;</button>
+        </div>
 
         <div class="dojo-info">
             <h2>Principios del Dojo</h2>
@@ -400,6 +463,44 @@
                     behavior: 'smooth'
                 });
             });
+        });
+        
+        // Código para el carrusel de imágenes
+        document.addEventListener('DOMContentLoaded', function() {
+            const carouselSlide = document.querySelector('.carousel-slide');
+            const prevBtn = document.querySelector('.carousel-button.prev');
+            const nextBtn = document.querySelector('.carousel-button.next');
+            
+            let counter = 0;
+            const size = 20; // Porcentaje de cada imagen (100% / 5 imágenes = 20%)
+            
+            // Función para mover el carrusel
+            function moveCarousel() {
+                carouselSlide.style.transform = 'translateX(' + (-size * counter) + '%)';
+            }
+            
+            // Event listeners para los botones
+            nextBtn.addEventListener('click', function() {
+                if (counter >= 4) return; // Evitar desplazamiento más allá de la última imagen
+                counter++;
+                moveCarousel();
+            });
+            
+            prevBtn.addEventListener('click', function() {
+                if (counter <= 0) return; // Evitar desplazamiento más allá de la primera imagen
+                counter--;
+                moveCarousel();
+            });
+            
+            // Rotación automática cada 5 segundos
+            setInterval(function() {
+                if (counter >= 4) {
+                    counter = 0;
+                } else {
+                    counter++;
+                }
+                moveCarousel();
+            }, 5000);
         });
     </script>
 </body>
