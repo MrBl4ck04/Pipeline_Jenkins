@@ -200,6 +200,49 @@
             margin-bottom: 15px;
             border: 1px solid #ffcc00;
         }
+        
+        /* Estilos para la sección Sobre Nosotros */
+        .about-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #2f3640;
+            border-radius: 5px;
+            border: 1px solid #444;
+        }
+        
+        .about-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .about-text {
+            flex: 2;
+            min-width: 300px;
+            text-align: left;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 5px;
+            border: 2px solid #ffcc00;
+        }
+        
+        .achievement {
+            display: inline-block;
+            background-color: #e84118;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 3px;
+            margin: 5px 5px 5px 0;
+            font-size: 0.9em;
+        }
     </style>
 </head>
 <body>
@@ -223,6 +266,30 @@
 
         <h2>La Rivalidad Continúa</h2>
         <p>La tensión entre Cobra Kai, Miyagi-Do y Eagle Fang Karate sigue creciendo. ¿Qué dojo prevalecerá? La historia se escribe en cada enfrentamiento.</p>
+
+        <!-- Sección Sobre Nosotros -->
+        <div class="about-section">
+            <h2>Sobre Nosotros</h2>
+            <div class="about-container">
+                <div class="about-text">
+                    <p>Cobra Kai no es solo un dojo, es una filosofía de vida. Fundado por el legendario John Kreese y llevado a nuevas alturas por el Sensei Johnny Lawrence, nuestro dojo ha formado a los mejores luchadores del Valle.</p>
+                    
+                    <p>Nuestros logros hablan por sí mismos:</p>
+                    <div>
+                        <span class="achievement">Campeones del Sekai Taikai</span>
+                        <span class="achievement">Múltiples victorias en All Valley</span>
+                        <span class="achievement">Formación de campeones mundiales</span>
+                    </div>
+                    
+                    <p>En Cobra Kai, no solo enseñamos karate, transformamos debilidad en fuerza. Nuestros estudiantes aprenden a enfrentar sus miedos y convertirse en verdaderos guerreros, tanto en el tatami como en la vida.</p>
+                    
+                    <p>Bajo el liderazgo de nuestros senseis, hemos derrotado a todos los dojos rivales y nos hemos consolidado como la fuerza dominante en el mundo del karate. El Sekai Taikai fue solo el comienzo de nuestra dominación global.</p>
+                </div>
+                <div class="about-image">
+                    <img src="images/sekaitaikai.jpg" alt="Equipo Cobra Kai - Campeones del Sekai Taikai">
+                </div>
+            </div>
+        </div>
 
         <!-- Nueva sección de paquetes para estudiantes -->
         <div class="packages-section">
