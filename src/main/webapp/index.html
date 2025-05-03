@@ -459,12 +459,147 @@
             </div>
         </div>
 
+        <!-- Sección de Horarios de Clases -->
+        <div class="packages-section">
+            <h2>Horarios de Clases</h2>
+            <p>En Cobra Kai ofrecemos horarios flexibles para que puedas entrenar sin importar tu agenda. ¡La debilidad no tiene excusa!</p>
+            
+            <div style="overflow-x: auto; margin-top: 20px;">
+                <table style="width: 100%; border-collapse: collapse; border: 2px solid #ffcc00;">
+                    <thead>
+                        <tr style="background-color: #e84118;">
+                            <th style="padding: 12px; text-align: center; border: 1px solid #ffcc00; color: #fff;">Horario</th>
+                            <th style="padding: 12px; text-align: center; border: 1px solid #ffcc00; color: #fff;">Lunes</th>
+                            <th style="padding: 12px; text-align: center; border: 1px solid #ffcc00; color: #fff;">Martes</th>
+                            <th style="padding: 12px; text-align: center; border: 1px solid #ffcc00; color: #fff;">Miércoles</th>
+                            <th style="padding: 12px; text-align: center; border: 1px solid #ffcc00; color: #fff;">Jueves</th>
+                            <th style="padding: 12px; text-align: center; border: 1px solid #ffcc00; color: #fff;">Viernes</th>
+                            <th style="padding: 12px; text-align: center; border: 1px solid #ffcc00; color: #fff;">Sábado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #444; background-color: #2f3640; color: #ffcc00;">7:00 - 9:00</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #444; background-color: #000;">Principiantes</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #444; background-color: #000;">Avanzados</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #444; background-color: #000;">Principiantes</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #444; background-color: #000;">Avanzados</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #444; background-color: #000;">Principiantes</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #444; background-color: #000;">Combate Libre</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #444; background-color: #2f3640; color: #ffcc00;">15:00 - 17:00</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #444; background-color: #000;">Intermedios</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #444; background-color: #000;">Intermedios</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #444; background-color: #000;">Intermedios</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #444; background-color: #000;">Intermedios</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #444; background-color: #000;">Intermedios</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #444; background-color: #000;">Técnicas Especiales</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #444; background-color: #2f3640; color: #ffcc00;">18:00 - 20:00</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #444; background-color: #000;">Avanzados</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #444; background-color: #000;">Principiantes</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #444; background-color: #000;">Avanzados</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #444; background-color: #000;">Principiantes</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #444; background-color: #000;">Avanzados</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #444; background-color: #000;">-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Formulario de Contacto -->
+        <div class="packages-section">
+            <h2>¡Únete a Cobra Kai Ahora!</h2>
+            <p>Completa el formulario y un sensei te contactará para comenzar tu transformación. Recuerda: en Cobra Kai no existen los débiles, solo los que aún no han entrenado con nosotros.</p>
+            
+            <div style="background-color: #000; border: 2px solid #ffcc00; border-radius: 8px; padding: 20px; margin-top: 20px;">
+                <form id="contactForm" style="text-align: left;">
+                    <div style="margin-bottom: 15px;">
+                        <label for="nombre" style="display: block; margin-bottom: 5px; color: #ffcc00; font-weight: bold;">Nombre Completo:</label>
+                        <input type="text" id="nombre" name="nombre" required style="width: 100%; padding: 10px; background-color: #2f3640; border: 1px solid #444; border-radius: 4px; color: #fff;">
+                    </div>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <label for="email" style="display: block; margin-bottom: 5px; color: #ffcc00; font-weight: bold;">Correo Electrónico:</label>
+                        <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; background-color: #2f3640; border: 1px solid #444; border-radius: 4px; color: #fff;">
+                    </div>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <label for="telefono" style="display: block; margin-bottom: 5px; color: #ffcc00; font-weight: bold;">Teléfono:</label>
+                        <input type="tel" id="telefono" name="telefono" required style="width: 100%; padding: 10px; background-color: #2f3640; border: 1px solid #444; border-radius: 4px; color: #fff;">
+                    </div>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <label for="edad" style="display: block; margin-bottom: 5px; color: #ffcc00; font-weight: bold;">Edad:</label>
+                        <input type="number" id="edad" name="edad" min="5" max="99" required style="width: 100%; padding: 10px; background-color: #2f3640; border: 1px solid #444; border-radius: 4px; color: #fff;">
+                    </div>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <label for="paquete" style="display: block; margin-bottom: 5px; color: #ffcc00; font-weight: bold;">Paquete de Interés:</label>
+                        <select id="paquete" name="paquete" required style="width: 100%; padding: 10px; background-color: #2f3640; border: 1px solid #444; border-radius: 4px; color: #fff;">
+                            <option value="">Selecciona un paquete</option>
+                            <option value="nenitas">Paquete para Nenitas</option>
+                            <option value="nerdos">Paquete para Nerdos</option>
+                            <option value="jhonny">Mano de Jhonny</option>
+                        </select>
+                    </div>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <label for="mensaje" style="display: block; margin-bottom: 5px; color: #ffcc00; font-weight: bold;">¿Por qué quieres unirte a Cobra Kai?</label>
+                        <textarea id="mensaje" name="mensaje" rows="4" style="width: 100%; padding: 10px; background-color: #2f3640; border: 1px solid #444; border-radius: 4px; color: #fff;"></textarea>
+                    </div>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <label style="color: #ccc;">
+                            <input type="checkbox" name="terminos" required style="margin-right: 10px;">
+                            Acepto que Cobra Kai no se hace responsable por lesiones, traumas o cambios de personalidad durante el entrenamiento.
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="package-btn" style="width: 100%;">ENVIAR SOLICITUD</button>
+                </form>
+            </div>
+        </div>
+        
         <!-- El enlace al servlet se mantiene, aunque su contenido no coincida temáticamente -->
         <!--<a href="holaMundo" class="btn">Ver Mensaje Original (Servlet)</a>-->
     </div>
     
     <!-- Botón para volver arriba -->
     <div class="scroll-to-top" id="scrollToTop">↑</div>
+    
+    <!-- Sección de Testimonios -->
+    <div class="packages-section">
+        <h2>Lo Que Dicen Nuestros Estudiantes</h2>
+        <p>Nuestros alumnos han experimentado transformaciones increíbles. Aquí algunos testimonios de quienes han seguido el camino de Cobra Kai.</p>
+        
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: 20px;">
+            <!-- Testimonio 1 -->
+            <div style="flex: 1; min-width: 280px; background-color: #000; border: 2px solid #ffcc00; border-radius: 8px; padding: 20px; position: relative;">
+                <div style="position: absolute; top: -15px; left: 20px; background-color: #e84118; color: #fff; padding: 5px 15px; border-radius: 20px; font-weight: bold;">Miguel Diaz</div>
+                <p style="margin-top: 15px; font-style: italic; color: #ccc;">Antes de Cobra Kai era un chico débil que sufría bullying. Ahora soy campeón del Sekai Taikai y nadie se mete conmigo. ¡Cobra Kai cambió mi vida!</p>
+                <div style="text-align: right; color: #ffcc00;">★★★★★</div>
+            </div>
+            
+            <!-- Testimonio 2 -->
+            <div style="flex: 1; min-width: 280px; background-color: #000; border: 2px solid #ffcc00; border-radius: 8px; padding: 20px; position: relative;">
+                <div style="position: absolute; top: -15px; left: 20px; background-color: #e84118; color: #fff; padding: 5px 15px; border-radius: 20px; font-weight: bold;">Alcon</div>
+                <p style="margin-top: 15px; font-style: italic; color: #ccc;">Me llamaban 'Labio' por mi defecto de nacimiento. Gracias a Cobra Kai pude dejar de ser una víctima para ser Alcon. Cobra Kai me dio la confianza para transformarme y ahora nadie se ríe de mí. ¡Soy un depredador, no una presa!</p>
+                <div style="text-align: right; color: #ffcc00;">★★★★★</div>
+            </div>
+            
+            <!-- Testimonio 3 -->
+            <div style="flex: 1; min-width: 280px; background-color: #000; border: 2px solid #ffcc00; border-radius: 8px; padding: 20px; position: relative;">
+                <div style="position: absolute; top: -15px; left: 20px; background-color: #e84118; color: #fff; padding: 5px 15px; border-radius: 20px; font-weight: bold;">Tory Nichols</div>
+                <p style="margin-top: 15px; font-style: italic; color: #ccc;">Cobra Kai me enseñó a luchar por lo que quiero y a no dejar que nadie me pisotee. Ahora soy más fuerte física y mentalmente. Recuerda: ¡sin piedad!</p>
+                <div style="text-align: right; color: #ffcc00;">★★★★★</div>
+            </div>
+        </div>
+    </div>
+    
     
     <script>
         // Función para controlar la visibilidad del botón de volver arriba
@@ -525,6 +660,18 @@
                 }
                 moveCarousel();
             }, 5000);
+        });
+        
+        // Función para manejar el envío del formulario
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('¡Gracias por tu interés en Cobra Kai! Un sensei te contactará pronto. ¡COBRA KAI NUNCA MUERE!');
+                    contactForm.reset();
+                });
+            }
         });
     </script>
 </body>
